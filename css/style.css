@@ -4,7 +4,90 @@
 *{
     margin: 0;
     padding: 0;
+    list-style: none;
+    text-decoration: none;
 }
+
+:root{
+    --font-primary: 'Baloo Da 2', serif;
+    --font-secundary: 'Josefin Slab',serif;
+    --font-action: 'Muli', serif;
+}
+
+/*
+    MENU
+*/
+
+.hamburger{
+    /*background-color: red;*/
+    width: 2rem;
+    height: 2rem;
+    position: fixed;
+    z-index: 100;
+    right: 2rem;
+    top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+
+.show-menu .hamburger{
+    right: 16rem;
+}
+
+.line{
+    width: 100%;
+    height: .1rem;
+    background-color: white;
+    box-shadow: 0.02rem 0.05rem #000;
+    transition: transform 1s;
+}
+
+.show-menu #line2{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.show-menu #line1{
+    transform: rotate(45deg) translate(.4rem, .4rem);
+}
+
+.show-menu #line3{
+    transform: rotate(-45deg) translate(.2rem, -.5rem);
+}
+
+.hamburger span{
+    position: absolute;
+    left: 3rem;
+    height: 2rem;
+    width: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #001510;
+    color: #fff;
+    font-family: var(--font-action);
+}
+
+.hamburger span:before{
+    content: '';
+    position: absolute;
+    border-radius: 5rem solid #008040;
+    border-radius: 5rem solid transparent;
+    border-radius: 5rem solid transparent;
+    border-radius: 5rem solid transparent;
+    left: -1rem;
+    opacity: 0;
+}
+
+.show-menu.hamburger:hover span{
+    opacity: 1;
+}
+
+/*
+    HEADER
+*/
 
 header{
     width: 100%;
@@ -47,7 +130,7 @@ header{
 .banner h1{
     color: #fff;
     font-size: 3.5rem;
-    font-family: 'Baloo Da 2', serif;
+    font-family: var(--font-primary);
     font-weight: 200;
     text-shadow: .3rem .4rem 2px rgba(0, 0, 0, 0.2);
     /*line-height: 3.5rem; caso eu queira da um espaço entre as palavras do meu h1*/
@@ -56,7 +139,7 @@ header{
 }
 
 .banner p{
-    font-family: 'Josefin Slab',serif;
+    font-family: var(--font-secundary);
     color: #fff;
     font-size: 2rem;
     text-shadow: .3rem .4rem 1px rgba(0, 0, 0, 0.2);
@@ -65,7 +148,7 @@ header{
 }
 
 .banner button{
-    font-family: 'Muli', serif;
+    font-family: var(--font-action);
     color: #fff;
     font-size: 1rem;
     text-transform: uppercase;
@@ -96,3 +179,159 @@ header{
     color: #000;
 }
 
+/*
+    NAVEGAÇÃO
+*/
+
+.sidebar{
+    width: 20rem;
+    height: 100vh;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    right: -20rem;
+    transition: all 1s;
+}
+
+.show-menu .sidebar{
+    right: 0;
+}
+
+.menu{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu-item{
+    text-align: center;    
+    margin-bottom: .5rem;
+}
+
+.menu-link{
+    font-family: var(--font-action);
+    font-size: 2rem;
+    color: #555;
+    transition: color 1s;
+}
+
+.menu-link:hover{
+    color: #075a47;
+}
+
+.social-media{
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.social-media i{
+    background-color: rgb(28, 83, 62);
+    color: rgb(216, 200, 200);
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: background-color 1s;
+}
+
+.social-media i:hover{
+    background-color: #001510;
+}
+
+/*
+    CONHECIMENTOS
+*/
+
+.conhecimentos{
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(6, 4rem);
+    row-gap: 3rem;
+}
+
+.conhecimento:nth-child(1){
+    grid-column: 4 / 7;
+    grid-row: 1 / 3;
+}
+
+.conhecimento:nth-child(2){
+    grid-column: 3 / 6;
+    grid-row: 3 / 5;
+}
+
+.conhecimento:nth-child(3){
+    grid-column: 4 / 7;
+    grid-row: 5 / -1;
+}
+
+.conhecimento:nth-child(4){
+    grid-column: 11 / 14;
+    grid-row: 1 / 3;
+}
+
+.conhecimento:nth-child(5){
+    grid-column: 12 / 15;
+    grid-row: 3 / 5;
+}
+
+.conhecimento:nth-child(6){
+    grid-column: 11 / 14;
+    grid-row: 5 / -1;
+}
+
+.sessao-conhecimentos{
+    background-color: rgb(180, 179, 179);
+}
+
+.sessao-header{
+    display: flex;
+    align-items: center;  /*vertical*/
+    justify-content: center;  /*horizontal*/
+}
+
+.sessao-header h1{
+    font-family: var(--font-primary);
+    font-size: 3rem;
+    color: #4b4343;
+    border-bottom: solid 3px #008040;
+    margin-bottom: 2rem;
+}
+
+.conhecimento-header{
+    display: inline;flex-direction: ;
+    align-items: center;
+    color: #524c4c;
+}
+
+.conhecimento-header i{
+    font-size: 1.8rem;
+}
+
+.conhecimento-header h3{
+    font-family: var(--font-secundary);
+    font-size: 2rem;
+    padding-left: 1rem;
+}
+
+.conhecimento-text{
+    font-family: var(--font-secundary);
+    margin-top: 1rem;
+}
+
+.conhecimentos-img-wrapper{
+    grid-column: 7 / 11;
+    grid-row: 2 / 6;
+    width: 100%;
+}
+
+.conhecimentos-img-wrapper img{
+    object-fit: cover;
+    width: 100%;
+}
